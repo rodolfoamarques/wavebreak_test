@@ -22,12 +22,29 @@ exports.init = ( server ) => {
 
   api.register(
     [
+      require( 'inert' ),
+      require( 'vision' ),
       {
         register: require('hapi-swaggered'),
         options: {
           schemes: ['http'],
-          stripPrefix: '/api',
           auth: false
+        }
+      },
+      {
+        register: require('hapi-swaggered-ui'),
+        options: {
+          path: '/docs',
+          auth: false,
+          authorization: {
+            field: 'authorization',
+            scope: 'header',
+            defaultValue: 'demoKey',
+            placeholder: 'Enter your apiKey here'
+          },
+          swaggerOptions: {
+            validatorUrl: null
+          }
         }
       }
     ], err => {
