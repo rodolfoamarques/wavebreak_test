@@ -2,6 +2,7 @@
 
 let api;
 var dir = require( 'node-dir' );
+let db = require( '../database/models' );
 
 
 exports.init = ( server ) => {

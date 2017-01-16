@@ -1,0 +1,38 @@
+{
+  "development": {
+    "username": "root",
+    "password": "root_pass",
+    "database": "wavebreak_dev",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "define": {
+      "paranoid": true,
+      "underscored": true,
+      "underscoredAll": true
+    }
+  },
+  "staging": {
+    "username": "root",
+    "password": "root_pass",
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "define": {
+      "paranoid": true,
+      "underscored": true,
+      "underscoredAll": true
+    }
+  },
+  "production": {
+    "username": "root",
+    "password": "root_pass",
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "define": {
+      "paranoid": true,
+      "underscored": true,
+      "underscoredAll": true
+    }
+  }
+}
