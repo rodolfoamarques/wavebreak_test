@@ -19,6 +19,7 @@
   "homepage": "https://github.com/rodolfoamarques/wavebreak_test#readme",
   "dependencies": {
     "bluebird": "^3.4.7",
+    "boom": "^4.2.0",
     "fs": "0.0.1-security",
     "hapi": "^16.1.0",
     "hapi-swaggered": "^2.7.0",
