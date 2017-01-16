@@ -12,7 +12,7 @@ The calculation details will be the following:
 * income tax = based on the tax table provide below
 * net income = gross income - income tax
 * pension contribution = gross income x pension rate
- 
+
 Notes: All calculation results should be rounded to the whole dollars. If >= 50 cents round up to the next dollar increment, otherwise round down. The following rates for 2012-13 apply from 1 July 2012 in Australia Taxable income Tax on this income
 * 0 - $18,200 Nil
 * $18,201 - $37,000 19c for each $1 over $18,200
@@ -34,14 +34,14 @@ Here is the csv input and output format we provide. (But feel free to use any fo
 
   Input (first name, last name, annual salary, pension rate (%), payment start date):
   > David,Rudd,60050,9%,01 March – 31 March
-  > 
+  >
   > Ryan,Chen,120000,10%,01 March – 31 March
-  
+
   Output (name, pay period, gross income, income tax, net income, super):
   > David Rudd,01 March – 31 March,5004,922,4082,450
   >
   > Ryan Chen,01 March – 31 March,10000,2696,7304,1000
-  
+
 As part of your solution:
 * List any assumptions that you have made in order to solve this problem.
 * Provide instruction on how to run the application
@@ -53,37 +53,60 @@ Good luck!
 ## Versions
 
 ```
+$ node -v
+v6.9.1
+
+$ npm -v
+4.1.1
+
+$ nvm -v
+Running version 1.1.1.
 ```
+Python 3.4.4 (download)[https://www.python.org/downloads/release/python-344/] <- MySQL 5.7 requirement
+MySQL 5.7 (download)[https://dev.mysql.com/downloads/windows/installer/5.7.html]
 
 Developed on Windows OS
 
 
-## Getting started
+## Installation
 
-This repo assumes you have a node.js environment ready, preferably with the previously described version.
+#### Prerequisites
 
-To get started, clone the repo and then install the dependencies:
+  1. This repo assumes you have a node.js environment ready, preferably with the previously described versions of npm and node.
 
-```
-$ npm install
-```
+  2. Some necessary global npm packages:
+    ```
+    $ npm install -g sequelize sequelize-cli mysql
+    ```
 
-Next, migrate the database:
+  3. You should also download and install a mysql environment and setup the following:
+    > create a database named: wavebreak_dev
+    > setup a user named: root
+    > set the password: root_pass
+    > grant access to database "wavebreak_dev" to user "root"
+    >
+    > If you already have your environment setup and want another username/password, simply update the file "config.json" inside folder "config"
 
-```
-$ sequelize db:migrate
-```
+#### Getting started
 
-Finally, run the test suite to verify that everything is working correctly:
+1. To get started, clone the repo, enter it and then install the dependencies:
+  ```
+  $ npm install
+  ```
 
-```
-$ npm test
-```
+2. Next, migrate the database (this step assumes you already created an empty database called "wavebreak_dev"):
+  ```
+  $ sequelize db:migrate
+  ```
 
-If the test suite passes, you'll be ready to run the app in a local server:
+3. Finally, run the test suite to verify that everything is working correctly:
+  ```
+  $ npm test
+  ```
 
-```
-$ npm start
-```
+4. If the test suite passes, you'll be ready to run the app in a local server:
+  ```
+  $ npm start
+  ```
 
-visualize page on: [http://localhost:3666/](http://localhost:3666/)
+5. Visualize the api on: [http://localhost:3666/](http://localhost:3666/)
