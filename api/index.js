@@ -56,10 +56,7 @@ exports.init = ( server ) => {
       api.route({
         path: '/',
         method: 'GET',
-        handler: ( request, reply ) => reply.redirect( 'docs' ),
-        config: {
-          auth: false
-        }
+        handler: ( request, reply ) => reply.redirect( 'docs' )
       });
     }
   );

@@ -11,7 +11,7 @@
       "underscoredAll": true
     }
   },
-  "staging": {
+  "test": {
     "username": "root",
     "password": "root_pass",
     "database": "database_test",

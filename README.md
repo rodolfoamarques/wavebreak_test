@@ -2,6 +2,8 @@
 
 Please complete the exercise below using the language of your choice (Node.JS, JavaScript, Ruby, Java) and send us your solution. BTW we love JavaScript at WaveBreak Media but feel free to choose the language  you love Take as much time as you need. We perform these tests to get a feel for how you approach problems, how you think, and how you design your code. Thank you and have fun.
 
+
+
 ## Problem: Australian employee monthly payslip
 
 When I input the employee's details: first name, last name, annual salary(positive integer) and pension rate(0% - 50% inclusive), payment start date, the program should generate payslip information with name, pay period, gross income, income tax, net income and pension.
@@ -26,7 +28,7 @@ Example Data
 Employee annual salary is 60,050, pension rate is 9%, how much will this employee be paid for the month of March ?
 * pay period = Month of March (01 March to 31 March)
 * gross income = 60,050 / 12 = 5,004.16666667 (round down) = 5,004
-* income tax = (3,572 + (60,050 - 37,000) x 0.325) / 12 = 921.9375 (round up) = 92
+* income tax = (3,572 + (60,050 - 37,000) x 0.325) / 12 = 921.9375 (round up) = 922
 * net income = 5,004 - 922 = 4,082
 * pension contribution = 5,004 x 9% = 450.36 (round down) = 450
 
@@ -50,6 +52,7 @@ As part of your solution:
 Good luck!
 
 
+
 ## Versions
 
 ```
@@ -66,6 +69,7 @@ Python 3.4.4 (download)[https://www.python.org/downloads/release/python-344/] <-
 MySQL 5.7 (download)[https://dev.mysql.com/downloads/windows/installer/5.7.html]
 
 Developed on Windows OS
+
 
 
 ## Installation
@@ -97,6 +101,7 @@ Developed on Windows OS
 2. Next, migrate the database (this step assumes you already created an empty database called "wavebreak_dev"):
   ```
   $ sequelize db:migrate
+  $ sequelize db:seed:all
   ```
 
 3. Finally, run the test suite to verify that everything is working correctly:
