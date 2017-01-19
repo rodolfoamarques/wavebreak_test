@@ -1,8 +1,10 @@
 'use strict'; /* jshint ignore:line */
 
 let api;
-var dir = require( 'node-dir' );
+var fs = require( 'fs' );
+var path = require( 'path' );
 let db = require( '../database/models' );
+let basename = path.basename( module.filename );
 
 
 exports.init = ( server ) => {
@@ -63,23 +65,13 @@ exports.init = ( server ) => {
 
   // Look through the routes in all the subdirectories
   // of the API and create a new route for each one
-  dir.files( __dirname, function( err, files ) {
-    if( err ) throw err;
+  fs.readdirSync( __dirname )
+  .filter( file => file !== basename )
+  .forEach( file => {
+    let routes = require( path.join(__dirname, file, 'routes') );
 
-    files.forEach( function( file ) {
-      if( file.endsWith('routes.js') ) {
-        let routes = require( file );
-
-        routes = routes.map( route => {
-          route.path = route.path;
-          return route;
-        });
-
-        api.route( routes );
-      }
-    });
+    api.route( routes );
   });
-
 
   return api;
 };
