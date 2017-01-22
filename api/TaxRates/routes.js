@@ -21,8 +21,8 @@ module.exports = [
           id: joi.any().forbidden(),
           bottom_floor: joi.number().min(0).precision(3).description('Base floor of tax calculation'),
           top_floor: joi.number().min(1).precision(3).description('Top floor of tax calculation'),
-          tax_per_unit_over_bottom_floor: joi.number().min(1).precision(3).description('Base rate for tax calculation, per money unit above base floor'),
-          cumulative_tax_up_to_bottom_floor: joi.number().min(1).precision(3).description('Cumulative tax to be added, based on previous top/bottom values and tax_per_unit_over_bottom_floor of each floor'),
+          tax_per_unit_over_bottom_floor: joi.number().min(0.001).precision(3).description('Base rate for tax calculation, per money unit above base floor'),
+          cumulative_tax_up_to_bottom_floor: joi.number().min(0).precision(3).description('Cumulative tax to be added, based on previous top/bottom values and tax_per_unit_over_bottom_floor of each floor'),
           created_at: joi.any().forbidden(),
           updated_at: joi.any().forbidden(),
           deleted_at: joi.any().forbidden()
@@ -69,8 +69,8 @@ module.exports = [
           id: joi.any().forbidden(),
           bottom_floor: joi.number().min(0).precision(3).description('Base floor of tax calculation'),
           top_floor: joi.number().min(1).precision(3).description('Top floor of tax calculation'),
-          tax_per_unit_over_bottom_floor: joi.number().min(1).precision(3).description('Base rate for tax calculation, per money unit above base floor'),
-          cumulative_tax_up_to_bottom_floor: joi.number().min(1).precision(3).description('Cumulative tax to be added, based on previous top/bottom values and tax_per_unit_over_bottom_floor of each floor'),
+          tax_per_unit_over_bottom_floor: joi.number().min(0.001).precision(3).description('Base rate for tax calculation, per money unit above base floor'),
+          cumulative_tax_up_to_bottom_floor: joi.number().min(0).precision(3).description('Cumulative tax to be added, based on previous top/bottom values and tax_per_unit_over_bottom_floor of each floor'),
           created_at: joi.any().forbidden(),
           updated_at: joi.any().forbidden(),
           deleted_at: joi.any().forbidden()
