@@ -74,15 +74,16 @@ lab.experiment( 'Payslip Endpoint', function() {
 
 
   // Test scenario to calculate payslip with sample employee information
-  lab.test( 'GET payslip - employee one', function( done ) {
+  lab.test( 'POST payslip - employee one', function( done ) {
 
     // create a test employee
     db.Employee.create( employee_one )
     .then( employee => {
 
       var options = {
-        method: 'GET',
-        url: baseRoute + '/' + employee.id
+        method: 'POST',
+        url: baseRoute + '/' + employee.id,
+        payload: { month: 1, year: 2015 }
       }
 
       // server.inject allows a simulation of an http request
@@ -91,6 +92,8 @@ lab.experiment( 'Payslip Endpoint', function() {
 
         // Expect http response status code to be 200 ("Ok")
         code.expect( response.statusCode ).to.be.equal( 200 );
+        // Expect pay_period to be equal to 'David Rudd'
+        code.expect( result.pay_period ).to.be.equal( 'January 01 to January 31, 2015' );
         // Expect full_name to be equal to 'David Rudd'
         code.expect( result.full_name ).to.be.equal( 'David Rudd' );
         // Expect gross_income = 60050 / 12 = 5004.16666666 (round down) = 5004
@@ -117,15 +120,16 @@ lab.experiment( 'Payslip Endpoint', function() {
 
 
   // Test scenario to calculate payslip with sample employee information
-  lab.test( 'GET payslip - employee two', function( done ) {
+  lab.test( 'POST payslip - employee two', function( done ) {
 
     // create a test employee
     db.Employee.create( employee_two )
     .then( employee => {
 
       var options = {
-        method: 'GET',
-        url: baseRoute + '/' + employee.id
+        method: 'POST',
+        url: baseRoute + '/' + employee.id,
+        payload: { month: 1, year: 2015 }
       }
 
       // server.inject allows a simulation of an http request
@@ -134,6 +138,8 @@ lab.experiment( 'Payslip Endpoint', function() {
 
         // Expect http response status code to be 200 ("Ok")
         code.expect( response.statusCode ).to.be.equal( 200 );
+        // Expect pay_period to be equal to 'David Rudd'
+        code.expect( result.pay_period ).to.be.equal( 'January 01 to January 31, 2015' );
         // Expect full_name to be equal to 'Ryan Chen'
         code.expect( result.full_name ).to.be.equal( 'Ryan Chen' );
         // Expect gross_income = 120000 / 12 = 10000
@@ -162,15 +168,16 @@ lab.experiment( 'Payslip Endpoint', function() {
 
 
   // Test scenario to calculate payslip with sample employee information
-  lab.test( 'GET payslip - employee three', function( done ) {
+  lab.test( 'POST payslip - employee three', function( done ) {
 
     // create a test employee
     db.Employee.create( employee_three )
     .then( employee => {
 
       var options = {
-        method: 'GET',
-        url: baseRoute + '/' + employee.id
+        method: 'POST',
+        url: baseRoute + '/' + employee.id,
+        payload: { month: 1, year: 2015 }
       }
 
       // server.inject allows a simulation of an http request
@@ -179,6 +186,8 @@ lab.experiment( 'Payslip Endpoint', function() {
 
         // Expect http response status code to be 200 ("Ok")
         code.expect( response.statusCode ).to.be.equal( 200 );
+        // Expect pay_period to be equal to 'David Rudd'
+        code.expect( result.pay_period ).to.be.equal( 'January 01 to January 31, 2015' );
         // Expect full_name to be equal to 'Joseph Forrest'
         code.expect( result.full_name ).to.be.equal( 'Joseph Forrest' );
         // Expect gross_income = 22124 / 12 = 1843.6666667 (round up) = 1844
@@ -205,15 +214,16 @@ lab.experiment( 'Payslip Endpoint', function() {
 
 
   // Test scenario to calculate payslip with sample employee information
-  lab.test( 'GET payslip - employee four', function( done ) {
+  lab.test( 'POST payslip - employee four', function( done ) {
 
     // create a test employee
     db.Employee.create( employee_four )
     .then( employee => {
 
       var options = {
-        method: 'GET',
-        url: baseRoute + '/' + employee.id
+        method: 'POST',
+        url: baseRoute + '/' + employee.id,
+        payload: { month: 1, year: 2015 }
       }
 
       // server.inject allows a simulation of an http request
@@ -222,6 +232,8 @@ lab.experiment( 'Payslip Endpoint', function() {
 
         // Expect http response status code to be 200 ("Ok")
         code.expect( response.statusCode ).to.be.equal( 200 );
+        // Expect pay_period to be equal to 'David Rudd'
+        code.expect( result.pay_period ).to.be.equal( 'January 01 to January 31, 2015' );
         // Expect full_name to be equal to 'Beatrice Jarvis'
         code.expect( result.full_name ).to.be.equal( 'Beatrice Jarvis' );
         // Expect gross_income = 406702 / 12 = 33891.83333333 (round up) = 33892
@@ -248,15 +260,16 @@ lab.experiment( 'Payslip Endpoint', function() {
 
 
   // Test scenario to calculate payslip with sample employee information
-  lab.test( 'GET payslip - employee five', function( done ) {
+  lab.test( 'POST payslip - employee five', function( done ) {
 
     // create a test employee
     db.Employee.create( employee_five )
     .then( employee => {
 
       var options = {
-        method: 'GET',
-        url: baseRoute + '/' + employee.id
+        method: 'POST',
+        url: baseRoute + '/' + employee.id,
+        payload: { month: 1, year: 2015 }
       }
 
       // server.inject allows a simulation of an http request
@@ -265,6 +278,8 @@ lab.experiment( 'Payslip Endpoint', function() {
 
         // Expect http response status code to be 200 ("Ok")
         code.expect( response.statusCode ).to.be.equal( 200 );
+        // Expect pay_period to be equal to 'David Rudd'
+        code.expect( result.pay_period ).to.be.equal( 'January 01 to January 31, 2015' );
         // Expect full_name to be equal to 'June Symons'
         code.expect( result.full_name ).to.be.equal( 'June Symons' );
         // Expect gross_income = 14352 / 12 = 1196
@@ -291,11 +306,12 @@ lab.experiment( 'Payslip Endpoint', function() {
 
 
   // Test scenario to get an employee that does not exist in the database
-  lab.test( 'GET payslip for non-existing employee', function( done ) {
+  lab.test( 'POST payslip for non-existing employee', function( done ) {
 
     var options = {
-      method: 'GET',
-      url: baseRoute + '/' + maximum_employees*200+2000
+      method: 'POST',
+      url: baseRoute + '/' + maximum_employees*200+2000,
+      payload: { month: 1, year: 2015 }
     }
 
     // server.inject allows a simulation of an http request
@@ -314,11 +330,12 @@ lab.experiment( 'Payslip Endpoint', function() {
 
 
   // Test scenario to get an entry with a negative id from the database
-  lab.test( 'GET payslip for database entry with negative ID', function( done ) {
+  lab.test( 'POST payslip for database entry with negative ID', function( done ) {
 
     var options = {
-      method: 'GET',
-      url: baseRoute + '/-1'
+      method: 'POST',
+      url: baseRoute + '/-1',
+      payload: { month: 1, year: 2015 }
     }
 
     // server.inject allows a simulation of an http request
@@ -331,6 +348,286 @@ lab.experiment( 'Payslip Endpoint', function() {
 
       // done() callback is required to end the test.
       server.stop( done );
+    });
+
+  });
+
+
+  // Test scenario to POST request with forbidden keys
+  lab.test( 'POST payslip with forbidden keys (forbidden: id)', function( done ) {
+
+    // create a test employee
+    db.Employee.create( employee_one )
+    .then( employee => {
+
+      var options = {
+        method: 'POST',
+        url: baseRoute + '/' + employee.id,
+        payload: { id: 10, month: 1, year: 2015 }
+      }
+
+      // server.inject allows a simulation of an http request
+      server.inject( options, function( response ) {
+        var result = response.result;
+
+        // Expect http response status code to be 400 ("Bad Request")
+        code.expect( response.statusCode ).to.be.equal( 400 );
+        code.expect( response.statusMessage ).to.be.equal( 'Bad Request' );
+
+        db.Employee.findById( employee.id )
+        .then( employee => {
+          // destroy the test employee
+          employee.destroy();
+
+          // done() callback is required to end the test.
+          server.stop( done );
+        });
+      });
+    });
+
+  });
+
+
+  // Test scenario to POST request with inexistent keys in the model
+  lab.test( 'POST new tax floor with extra information (extra: non_existing_key)', function( done ) {
+
+    // create a test employee
+    db.Employee.create( employee_one )
+    .then( employee => {
+
+      var options = {
+        method: 'POST',
+        url: baseRoute + '/' + employee.id,
+        payload: { month: 1, year: 2015, non_existing_key: 'dummy value' }
+      }
+
+      // server.inject allows a simulation of an http request
+      server.inject( options, function( response ) {
+        var result = response.result;
+
+        // Expect http response status code to be 400 ("Bad Request")
+        code.expect( response.statusCode ).to.be.equal( 400 );
+        code.expect( response.statusMessage ).to.be.equal( 'Bad Request' );
+
+        db.Employee.findById( employee.id )
+        .then( employee => {
+          // destroy the test employee
+          employee.destroy();
+
+          // done() callback is required to end the test.
+          server.stop( done );
+        });
+      });
+    });
+
+  });
+
+
+  // Test scenario to POST request with invalid values
+  lab.test( 'POST payslip with invalid data - part 1 (month must be a number)', function( done ) {
+
+    // create a test employee
+    db.Employee.create( employee_one )
+    .then( employee => {
+
+      var options = {
+        method: 'POST',
+        url: baseRoute + '/' + employee.id,
+        payload: { month: 'not a number', year: 2015 }
+      }
+
+      // server.inject allows a simulation of an http request
+      server.inject( options, function( response ) {
+        var result = response.result;
+
+        // Expect http response status code to be 400 ("Bad Request")
+        code.expect( response.statusCode ).to.be.equal( 400 );
+        code.expect( response.statusMessage ).to.be.equal( 'Bad Request' );
+
+        db.Employee.findById( employee.id )
+        .then( employee => {
+          // destroy the test employee
+          employee.destroy();
+
+          // done() callback is required to end the test.
+          server.stop( done );
+        });
+      });
+    });
+
+  });
+
+
+  // Test scenario to POST request with invalid values
+  lab.test( 'POST payslip with invalid data - part 2 (month must be larger than or equal to 1)', function( done ) {
+
+    // create a test employee
+    db.Employee.create( employee_one )
+    .then( employee => {
+
+      var options = {
+        method: 'POST',
+        url: baseRoute + '/' + employee.id,
+        payload: { month: -125, year: 2015 }
+      }
+
+      // server.inject allows a simulation of an http request
+      server.inject( options, function( response ) {
+        var result = response.result;
+
+        // Expect http response status code to be 400 ("Bad Request")
+        code.expect( response.statusCode ).to.be.equal( 400 );
+        code.expect( response.statusMessage ).to.be.equal( 'Bad Request' );
+
+        db.Employee.findById( employee.id )
+        .then( employee => {
+          // destroy the test employee
+          employee.destroy();
+
+          // done() callback is required to end the test.
+          server.stop( done );
+        });
+      });
+    });
+
+  });
+
+
+  // Test scenario to POST request with invalid values
+  lab.test( 'POST payslip with invalid data - part 3 (month must be less than or equal to 12)', function( done ) {
+
+    // create a test employee
+    db.Employee.create( employee_one )
+    .then( employee => {
+
+      var options = {
+        method: 'POST',
+        url: baseRoute + '/' + employee.id,
+        payload: { month: 123, year: 2015 }
+      }
+
+      // server.inject allows a simulation of an http request
+      server.inject( options, function( response ) {
+        var result = response.result;
+
+        // Expect http response status code to be 400 ("Bad Request")
+        code.expect( response.statusCode ).to.be.equal( 400 );
+        code.expect( response.statusMessage ).to.be.equal( 'Bad Request' );
+
+        db.Employee.findById( employee.id )
+        .then( employee => {
+          // destroy the test employee
+          employee.destroy();
+
+          // done() callback is required to end the test.
+          server.stop( done );
+        });
+      });
+    });
+
+  });
+
+
+  // Test scenario to POST request with invalid values
+  lab.test( 'POST payslip with invalid data - part 4 (year must be a number)', function( done ) {
+
+    // create a test employee
+    db.Employee.create( employee_one )
+    .then( employee => {
+
+      var options = {
+        method: 'POST',
+        url: baseRoute + '/' + employee.id,
+        payload: { month: 1, year: 'not a number' }
+      }
+
+      // server.inject allows a simulation of an http request
+      server.inject( options, function( response ) {
+        var result = response.result;
+
+        // Expect http response status code to be 400 ("Bad Request")
+        code.expect( response.statusCode ).to.be.equal( 400 );
+        code.expect( response.statusMessage ).to.be.equal( 'Bad Request' );
+
+        db.Employee.findById( employee.id )
+        .then( employee => {
+          // destroy the test employee
+          employee.destroy();
+
+          // done() callback is required to end the test.
+          server.stop( done );
+        });
+      });
+    });
+
+  });
+
+
+  // Test scenario to POST request with invalid values
+  lab.test( 'POST payslip with invalid data - part 5 (year must be larger than or equal to 1950)', function( done ) {
+
+    // create a test employee
+    db.Employee.create( employee_one )
+    .then( employee => {
+
+      var options = {
+        method: 'POST',
+        url: baseRoute + '/' + employee.id,
+        payload: { month: 1, year: 1949 }
+      }
+
+      // server.inject allows a simulation of an http request
+      server.inject( options, function( response ) {
+        var result = response.result;
+
+        // Expect http response status code to be 400 ("Bad Request")
+        code.expect( response.statusCode ).to.be.equal( 400 );
+        code.expect( response.statusMessage ).to.be.equal( 'Bad Request' );
+
+        db.Employee.findById( employee.id )
+        .then( employee => {
+          // destroy the test employee
+          employee.destroy();
+
+          // done() callback is required to end the test.
+          server.stop( done );
+        });
+      });
+    });
+
+  });
+
+
+  // Test scenario to POST request with invalid values
+  lab.test( 'POST payslip with invalid data - part 6 (year must be less than or equal to 2100)', function( done ) {
+
+    // create a test employee
+    db.Employee.create( employee_one )
+    .then( employee => {
+
+      var options = {
+        method: 'POST',
+        url: baseRoute + '/' + employee.id,
+        payload: { month: 1, year: 2101 }
+      }
+
+      // server.inject allows a simulation of an http request
+      server.inject( options, function( response ) {
+        var result = response.result;
+
+        // Expect http response status code to be 400 ("Bad Request")
+        code.expect( response.statusCode ).to.be.equal( 400 );
+        code.expect( response.statusMessage ).to.be.equal( 'Bad Request' );
+
+        db.Employee.findById( employee.id )
+        .then( employee => {
+          // destroy the test employee
+          employee.destroy();
+
+          // done() callback is required to end the test.
+          server.stop( done );
+        });
+      });
     });
 
   });

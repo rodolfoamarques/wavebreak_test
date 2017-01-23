@@ -1,6 +1,7 @@
 'use strict'; // jshint ignore:line
 
 let Boom = require( 'boom' );
+let Moment = require( 'moment' );
 let db = require( '../../database/models' );
 
 
@@ -39,7 +40,10 @@ exports.calculatePaySlip = ( request, reply ) =>
       tax_floor = tax_floor[0].toJSON();
 
       let payslip = {};
-      // payslip.pay_period = ;
+
+      let period = Moment( request.payload.year.toString() + '-' + request.payload.month.toString(), "YYYY-MM" );
+      payslip.pay_period = period.format( 'MMMM' ) + ' 01 to ' + period.format( 'MMMM' ) + ' ' + period.daysInMonth() + ', ' + period.format( 'YYYY' );
+
       payslip.full_name = employee.first_name + " " + employee.last_name;
       payslip.gross_income = Math.round( employee.annual_salary / 12 );
 
