@@ -114,4 +114,21 @@ Developed on Windows OS
   $ npm start
   ```
 
-5. Visualize the api on: [http://localhost:3666/](http://localhost:3666/)
+5. Visualize the api documentation on: [http://localhost:3666/](http://localhost:3666/docs). This will allow you to easily see what routes are available, what information each route requires and to easily test and interact with the api. If you wish, feel free to access each route separately by their address in the browser (for example [http://localhost:3666/payslip](http://localhost:3666/payslip)) but remember this is an 'api only' project. No front-end whatsoever was developed.
+
+
+
+
+## Assumptions
+
+* Individual Income Tax Rates table
+  > In the description, this table is provided as a static information. Despite that, on real scenarios this is a table that is usually adjusted every year. For this reason I thought it best to create a table in the database where this information is stored and retrieved instead of simply hardcode it in the logic. A controller and routes to create/read/update/delete were also added to allow editing the values in the table. It should be noted that this is a simple implementation. The focus of the task is the calculation of the payslip and not the consistency of the information on this table. Although some validation exists (requiring all information, assuring that only numbers are provided, verification that reference id's exist), it concerns the assurance of the calculation of the payslip. Further validation should be added in a production environment, for example to ensure that each floor's ceiling is just one monetary unit less than the next floor's bottom, automate the calculation of the cumulative taxes between each floor to minimize human error or even add start/end dates for the period where that floor is in effect. On a last note, in a production environment, this information would probably come from an automated integration with a government Web API or similar, rendering the controller useless in most of it's routes.
+
+* Employee module
+  > As with the ITR table, a simplistic module to create/read/update/delete employees was added. From the exercise alone, this would seem an overkill to solve the problem. Still, on a production environment, it does not make sense to calculate the payslip of an employee without an employee registry. It is a simple module with only the required information to calculate the payslip, and is mainly aimed to assist the creation of new employees to develop new test scenarios for the payslip calculation function. On a production environment this entity would most likely have a unique column identifying each employee and several other personal information of the employee.
+
+* Payslip calculation
+  > Since the exercise is not explicit, I also assumed that the payslip is calculated per employee and not for multiple employees at the same time. This could be simply modified either by calling the function multiple times, or by modifying the function to receive an array of ids as argument and return an array of payslips.
+
+* FrontEnd
+  > Since I use swagger for documentation and human testing of each API route, and since the exercise is omissive regarding FrontEnd development, I saved some effort and did not develop any kind of FrontEnd interface. Swagger usually provides a simple yet good enough interface to interact with the API routes, but if FontEnd is also a requirement, please do give a description of what be acceptable and allow me a couple more days to complete it.
